@@ -9,26 +9,40 @@ function App() {
   const [weightDataFromCurrentWeightComp, setWeightDataFromCurrentWeightComp] =
     useState("");
 
-  const [foodItemFromFoodConsumption, setFoodItemFromFoodConsumption] =
-    useState("");
+  const [consumedFoodList, setConsumedFoodList] = useState([]);
 
   function foodItemToApp(foodItemData) {
-    setFoodItemFromFoodConsumption(foodItemData);
-    console.log(foodItemData);
+    setConsumedFoodList((consumedFoodList) => [
+      ...consumedFoodList,
+      foodItemData,
+    ]);
+
+    // localStorage.setItem("foodEatenToday", consumedFoodList);
   }
+
+  console.log(consumedFoodList);
 
   function currentWeightToApp(currentWeightData) {
     setWeightDataFromCurrentWeightComp(currentWeightData);
   }
 
+  function handleDelete(index) {
+    setConsumedFoodList(consumedFoodList.filter((_, i) => i !== index));
+  }
+
   return (
     <>
-      <DailyRequiredIntake currentWeight={weightDataFromCurrentWeightComp} />
+      <DailyRequiredIntake
+        consumedFoodData={consumedFoodList}
+        currentWeight={weightDataFromCurrentWeightComp}
+      />
       <CurrentWeight childToParent={currentWeightToApp} />
       <br></br>
-      <FoodConsumption childToParent={foodItemToApp} />
-      <DailyFoodConsumptionList />
-      <p>{JSON.stringify(foodItemFromFoodConsumption)}</p>
+      <FoodConsumption onAddFoodItem={foodItemToApp} />
+      <DailyFoodConsumptionList
+        consumedFoodData={consumedFoodList}
+        onDelete={handleDelete}
+      />
     </>
   );
 }

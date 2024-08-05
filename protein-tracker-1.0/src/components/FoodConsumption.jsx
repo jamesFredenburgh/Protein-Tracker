@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-function FoodConsumption(props) {
+function FoodConsumption({ onAddFoodItem }) {
   const [show, setShow] = useState(false);
   const [foodItem, setFoodItem] = useState("");
   const [proteinContent, setProteinContent] = useState("");
@@ -19,7 +19,7 @@ function FoodConsumption(props) {
       servings: servings,
     };
     console.log(newFoodItem);
-    props.childToParent(newFoodItem);
+    onAddFoodItem(newFoodItem);
   }
 
   function addFoodItemHandler() {
@@ -48,7 +48,7 @@ function FoodConsumption(props) {
       </Button>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>What did you eat?</Modal.Title>
         </Modal.Header>
         <Modal.Body>
