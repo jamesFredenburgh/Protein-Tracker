@@ -13,6 +13,7 @@ function CurrentWeight({ childToParent }) {
   function submitWeightHandler(weightValue) {
     localStorage.setItem("currentWeight", weightValue);
     setShowWeightModal(!showWeightModal);
+    childToParent(weightValue);
   }
 
   function showWeightModalHandler() {
