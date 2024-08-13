@@ -1,0 +1,23 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* consumed food list */
+.ListItem {
+  margin: 10px;
+}
+
+.DeleteButton {
+  margin-left: 10px;
+}
+
+/* daily required intake */
+
+.ProgressBar {
+  display: block;
+  width: 500px;
+  margin-bottom: 10px;
+}
