@@ -1,4 +1,5 @@
 import ProgressBar from "react-bootstrap/ProgressBar";
+import styles from "../styles.module.css";
 
 function DailyRequiredIntake({ consumedFoodData, currentWeight }) {
   const consumedFoodList = [...consumedFoodData];
@@ -16,10 +17,14 @@ function DailyRequiredIntake({ consumedFoodData, currentWeight }) {
 
   return (
     <>
-      <h1>You need to eat this much protein: {currentWeight} grams today</h1>
-      <h1>You've eaten {totalProteinEaten} grams of protein today</h1>
-      <h1>You need {remainingProteinNeeded} grams more!</h1>
-      <ProgressBar now={percentageBar} label={`${percentageBar}%`} />
+      <h1>Daily required intake: {currentWeight} grams per day</h1>
+      <h1>Total consumed today: {totalProteinEaten} grams</h1>
+      <h1>Total remaining: {remainingProteinNeeded} grams</h1>
+      <ProgressBar
+        className={styles.ProgressBar}
+        now={percentageBar}
+        label={`${percentageBar}%`}
+      />
     </>
   );
 }

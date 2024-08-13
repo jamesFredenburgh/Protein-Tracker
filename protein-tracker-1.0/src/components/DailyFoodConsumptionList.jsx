@@ -1,6 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
+import styles from "../styles.module.css";
 
 function DailyFoodConsumptionList({ consumedFoodData, onDelete }) {
   // const dailyFoodConsumptionList = [...props.consumedFoodData];
@@ -11,7 +12,7 @@ function DailyFoodConsumptionList({ consumedFoodData, onDelete }) {
   return (
     <ul>
       {consumedFoodData.map((item, index) => (
-        <li key={index}>
+        <li key={index} className={styles.ListItem}>
           <Card>
             <Card.Body>
               {`${item.servings} ${
@@ -23,7 +24,11 @@ function DailyFoodConsumptionList({ consumedFoodData, onDelete }) {
                   ? "grams"
                   : "gram"
               } of protein`}
-              <Button variant="danger" onClick={() => onDelete(index)}>
+              <Button
+                className={styles.DeleteButton}
+                variant="danger"
+                onClick={() => onDelete(index)}
+              >
                 X
               </Button>
             </Card.Body>

@@ -4,6 +4,7 @@ import CurrentWeight from "./components/CurrentWeight";
 import { useState, useEffect } from "react";
 import FoodConsumption from "./components/FoodConsumption";
 import DailyFoodConsumptionList from "./components/DailyFoodConsumptionList";
+import styles from "./styles.module.css";
 
 function App() {
   const [weightDataFromCurrentWeightComp, setWeightDataFromCurrentWeightComp] =
@@ -53,7 +54,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className={styles.App}>
       <DailyRequiredIntake
         consumedFoodData={consumedFoodList}
         currentWeight={weightDataFromCurrentWeightComp}
@@ -65,7 +66,7 @@ function App() {
         consumedFoodData={consumedFoodList}
         onDelete={handleDelete}
       />
-    </>
+    </div>
   );
 }
 
@@ -73,3 +74,4 @@ export default App;
 
 //comments
 //weightDataFromCurrentWeightComp is coming from CurrentWeight component, then lifted to App, which I will be passing to the DailyRequiredIntake component
+//in the local storage, set up the current date and everything I ate in that day as one object.
