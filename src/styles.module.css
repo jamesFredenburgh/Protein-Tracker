@@ -1,23 +1,20 @@
-.App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+@media (max-width: 390px) {
+  .App {
+    width: 100%;
+    padding: 10px;
+  }
 
-/* consumed food list */
-.ListItem {
-  margin: 10px;
-}
+  /* Adjust the width of the progress bar */
+  .ProgressBar {
+    width: 100%;
+  }
 
-.DeleteButton {
-  margin-left: 10px;
-}
+  /* Adjust margins and padding for list items and buttons */
+  .ListItem {
+    margin: 5px;
+  }
 
-/* daily required intake */
-
-.ProgressBar {
-  display: block;
-  width: 500px;
-  margin-bottom: 10px;
+  .DeleteButton {
+    margin-left: 5px;
+  }
 }
